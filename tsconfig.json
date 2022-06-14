@@ -1,9 +1,23 @@
 {
-  "compilerOptions": {
-    "lib": ["ES6"],
-    "module": "esnext",
-    "allowJs": true
-  },
-  "exclude": ["node_modules"],
-  "include": ["src/**/*"]
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "allowJs": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "types": ["jest", "puppeteer", "node"],
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost", "ES6"]
+    },
+    "include": ["src/**/*.ts", "src/main.js"],
+    "exclude": ["node_modules", "dist"]
 }
