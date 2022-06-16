@@ -12,7 +12,7 @@
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
         "baseUrl": ".",
-        "types": ["jest", "puppeteer", "node"],
+        "types": ["node"],
         "paths": {
             "@/*": ["src/*"]
         },

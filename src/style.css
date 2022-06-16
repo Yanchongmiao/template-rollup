@@ -1,5 +1,7 @@
-body{
-min-width: 300px;
-min-height: 300px;
-background-color: aquamarine;
+body {
+    min-width: 300px;
+    min-height: 300px;
+    background-color: aquamarine;
+    color: green;
+    display: flex;
 }
