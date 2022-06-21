@@ -10,12 +10,15 @@ import alias from '@rollup/plugin-alias'
 import json from 'rollup-plugin-json'
 import cssnano from 'cssnano';// css代码压缩
 import autoprefixer from 'autoprefixer'
+import vue from 'rollup-plugin-vue';
+import clear from 'rollup-plugin-clear';// 打包前，先清空 dist 文件夹
+
 const resolveDir = dir => path.join(__dirname, dir)
 const env = process.env.NODE_ENV
 const config = {
-    input: 'src/main.js',
+    input: 'src/main.ts',
     output: [{
-        file: 'dist/umd/index.js',
+        file: 'dist/lib/umd/index.js',
         format: 'umd',// amd / es6 / iife / umd / cjs (umd同时支持 amd、cjs 和 iife)
         name: 'bundleName', //当format为 iife 或 umd 时必须提供，将作为全局变量挂在window(浏览器环境)下：window.A=...
         sourcemap: false,  //生成bundle.map.js文件，方便调试
@@ -24,12 +27,16 @@ const config = {
         }
     },
     {
-        file: 'dist/esm/index.js', // 打包成esmodule
+        file: 'dist/lib/esm/index.js', // 打包成esmodule
         format: 'es'
     },
     ],
     external: ['lodash'], // 配置rollup，不打包react,redux;将其视为外部依赖
     plugins: [
+        vue({
+            css: true,
+            compileTemplate: true
+        }),
         typescript(),
         nodeResolve(),
         json(),
@@ -52,6 +59,10 @@ const config = {
             entries: [
                 { find: '@', replacement: resolveDir('src') }
             ]
+        }),
+        clear({
+            targets: ['dist/lib'],
+            watch: true,
         }),
     ],
 }

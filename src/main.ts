@@ -5,4 +5,8 @@ export const init = () => {
 export const testyyyy = () => {
     console.log('testyyyy');
 };
-//# sourceMappingURL=main.js.map
+export const a = 1212;
+export const b = 111212;
+export const c = 111212;
+export const d = 111212;
+export const e = 111212;

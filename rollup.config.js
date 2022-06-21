@@ -19,7 +19,7 @@
 //         file: 'dist/bundle.cjs.js',
 //         format: 'umd',//amd cmd cjs es iife
 //         name: 'bundleName', // 打包后的全局变量，如浏览器端 window.ReactRedux
-//         sourcemap: true,  //生成bundle.map.js文件，方便调试　
+//         sourcemap: true,  //生成bundle.map.js文件，方便调试
 //         globals: {
 //             // Vue: 'Vue', // 这跟external 是配套使用的，指明global.React即是外部依赖react
 //         }
