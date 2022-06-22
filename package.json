@@ -1,9 +1,9 @@
 {
-    "name": "ycTest",
-    "version": "1.0.0",
+    "name": "rollup模板",
+    "version": "1.0.1",
     "description": "rollup模板",
-    "main": "./src/main.ts",
     "scripts": {
+        "sh": "sh publish.sh",
         "bootstrap": "pnpm install && pnpm run husky",
         "dev": "rollup -c config/rollup.config.dev.js --watch && npm run build:types",
         "build": "npm run build:types && rollup -c config/rollup.config.build.js",
@@ -27,21 +27,24 @@
     "keywords": [
         "rollup",
         "rollup-template",
-        "template",
         "typescript"
     ],
-    "author": {
-        "name": "rollup-template",
-        "email": "xxx@xxx.com",
-        "url": "https://github.com/Yanchongmiao/template-rollup.git"
-    },
+    "author": "rollup-template <xxx@xxx.com> (https://github.com/Yanchongmiao/template-rollup.git)",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/Yanchongmiao/template-rollup/issues"
     },
     "bin": {
-        "ycTest": "./src/main.ts"
+        "包名": "dist/esm/index.js"
     },
+    "types": "./dist/main.d.ts",
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "lib"
+    ],
+    "main": "dist/esm/index.js",
     "homepage": "https://github.com/Yanchongmiao/template-rollup#readme",
     "devDependencies": {
         "@babel/core": "^7.18.5",
@@ -121,5 +124,12 @@
         "commitizen": {
             "path": "node_modules/cz-customizable"
         }
+    },
+    "dependencies": {
+        "eslint-utils": "^3.0.0",
+        "eslint-scope": "^7.1.1",
+        "prettier-linter-helpers": "^1.0.0",
+        "eslint-visitor-keys": "^3.3.0",
+        "vue-eslint-parser": "^9.0.2"
     }
 }
